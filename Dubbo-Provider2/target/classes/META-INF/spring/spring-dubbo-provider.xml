@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd 
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="dubbo-provider2"/>
+    <dubbo:registry id = "myRegistry" address="127.0.0.1:2182" protocol="zookeeper" />
+    <dubbo:protocol id = "myProtocol" name="dubbo" port="20881"/>
+  
+    <dubbo:service interface="xin.zhaohong.interfaces2.AddAge" ref="addAge"/>
+    <bean id="addAge" class="xin.zhaohong.interfaces2.impl.MyAddAge"/>
+</beans>
